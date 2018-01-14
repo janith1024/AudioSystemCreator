@@ -101,12 +101,17 @@
             });
 			var val = $( "#frequency" ).slider( "values" );
 			$( "#frequencyVal" ).val(val[0] +" - "+ val[1]  + "Hz");
-                    cal(65,45,[100,18000]);
+                    cal($( "#spl" ).slider( "value" ),$( "#area" ).slider( "value" ),$( "#frequency" ).slider( "values" ));
 		});
                 function cal(db,area,reng) {
-                    $( "#powerO" ).val(((db*db*area/100*(reng[1]-reng[0])/1000)/20000).toFixed(2)+ "W");
-                    $( "#volumeL" ).val((db*area/100*(reng[1]-reng[0])/1000/50000).toFixed(2)+" l");
-                    $( "#priceE" ).val("RS "+(db*area*(reng[1]-reng[0])/1000).toFixed(2));
+                    $( "#powerO" ).val(((db*db*area/100*(reng[1]-reng[0])/1000)/2000).toFixed(2)+ "W");
+                    $( "#volumeL" ).val((db*area/100*(reng[1]-reng[0])/1000/500).toFixed(2)+" l");
+                    var price = (db*area*(reng[1]-reng[0])/10000000).toFixed(2)*1000;
+                    $( "#priceE" ).val("RS "+price +".00");
+                    $( "#priceF" ).val("RS "+price +".00");
+                }
+                function extra() {
+                    
                 }
                 </script>
 
@@ -501,7 +506,7 @@
                                                         <div class="step">
                                                             
                                                             <div class="each_cell spa_btm">
-                                                                <h1>Select the system working range</h1>
+                                                                <h1>Facilities configuration</h1>
                                                             </div>
                                                             
                                                             <div class="each_cell spa_btm">
@@ -515,7 +520,7 @@
                                                                     
                                                                         <!-- heading -->
                                                                         <div class="each_cell spa_btm">
-                                                                            <h1>Your suitable heading here</h1>
+                                                                            <h1>Input</h1>
                                                                         </div>
 
                                                                         <div class="each_cell spa_btm">
@@ -531,9 +536,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Bluetooth
                                                                                 </h2>
                                                                             </div>
 
@@ -548,9 +553,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Wifi
                                                                                 </h2>
                                                                             </div>
 
@@ -565,31 +570,79 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    USB
                                                                                 </h2>
                                                                             </div>
 
                                                                         </div>
                                                                         <!-- each input value -->
 
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
+                                                                    <!-- each input value -->
+                                                                    <div class="each_cell spa_btm_form_val_box">
+                                                                        <div class="flu_left padding_right">
+                                                                            <div class="cirval">
+                                                                                <input type="checkbox" name="radio" value="CBR">
                                                                             </div>
-
-                                                                            <div class="flu_right height_for_right">
-                                                                                <h2>
-                                                                                    The text is here is for the option to select
-                                                                                </h2>
-                                                                            </div>
-
                                                                         </div>
-                                                                        <!-- each input value -->
+
+                                                                        <div class="flu_right">
+                                                                            <h2>
+                                                                                Internal storage
+                                                                            </h2>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- each input value -->
+                                                                    <!-- each input value -->
+                                                                    <div class="each_cell spa_btm_form_val_box">
+                                                                        <div class="flu_left padding_right">
+                                                                            <div class="cirval">
+                                                                                <input type="checkbox" name="radio" value="CBR">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="flu_right">
+                                                                            <h2>
+                                                                                AUX
+                                                                            </h2>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- each input value -->
+                                                                    <!-- each input value -->
+                                                                    <div class="each_cell spa_btm_form_val_box">
+                                                                        <div class="flu_left padding_right">
+                                                                            <div class="cirval">
+                                                                                <input type="checkbox" name="radio" value="CBR">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="flu_right">
+                                                                            <h2>
+                                                                                FM tuner
+                                                                            </h2>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- each input value -->
+                                                                    <!-- each input value -->
+                                                                    <div class="each_cell spa_btm_form_val_box">
+                                                                        <div class="flu_left padding_right">
+                                                                            <div class="cirval">
+                                                                                <input type="checkbox" name="radio" value="CBR">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="flu_right">
+                                                                            <h2>
+                                                                                DSP mic mixer(experimental design)
+                                                                            </h2>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- each input value -->
                                                                     
                                                                     
                                                                 </div>
@@ -601,7 +654,7 @@
                                                                     
                                                                         <!-- heading -->
                                                                         <div class="each_cell spa_btm">
-                                                                            <h1>Your suitable heading here</h1>
+                                                                            <h1>Process</h1>
                                                                         </div>
 
                                                                         <div class="each_cell spa_btm">
@@ -617,9 +670,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Equalizer
                                                                                 </h2>
                                                                             </div>
 
@@ -634,9 +687,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Compressor
                                                                                 </h2>
                                                                             </div>
 
@@ -651,9 +704,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Automatic gain control
                                                                                 </h2>
                                                                             </div>
 
@@ -668,9 +721,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Intelligent sound adjustment(experimental design)
                                                                                 </h2>
                                                                             </div>
 
@@ -686,7 +739,7 @@
                                                                         
                                                                         <!-- heading -->
                                                                         <div class="each_cell spa_btm">
-                                                                            <h1>Your suitable heading here</h1>
+                                                                            <h1>Controllers</h1>
                                                                         </div>
 
                                                                         <div class="each_cell spa_btm">
@@ -702,9 +755,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Wifi only
                                                                                 </h2>
                                                                             </div>
 
@@ -719,9 +772,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Analog
                                                                                 </h2>
                                                                             </div>
 
@@ -736,39 +789,32 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="flu_right height_for_right">
+                                                                            <div class="flu_right">
                                                                                 <h2>
-                                                                                    The text is here is for the option to select
+                                                                                    Touch control(TFT display)
                                                                                 </h2>
                                                                             </div>
 
                                                                         </div>
                                                                         <!-- each input value -->
 
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right height_for_right">
-                                                                                <h2>
-                                                                                    The text is here is for the option to select
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->                                                                    
                                                                     
                                                                 </div>
                                                                 <!-- 3 each input value -->
                                                                                                                                 
-                                                            </div>                                                            
-                                                          
-                                                                                                               
-                                                            
+                                                            </div>
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>Estimated price : </h1>
+                                                                    <input type="text" id="priceF" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                                                </div>
+
+                                                            </div>
+
+
+
+
                                                         </div>
                                                         <!-- +++++++++ div set 003 +++++++-->
 
