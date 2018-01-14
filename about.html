@@ -3,893 +3,890 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />	
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
-	<title>Configure your own Audio System</title>
-        
-        <link rel="stylesheet" type="text/css" href="css/j.css" />
-        <link rel="stylesheet" type="text/css" href="css/slider.css" />
-			
-        <!--menu-->
-        <link rel="stylesheet" href="css/demo.css?v=5.7.1" />
-        <link rel="stylesheet" href="css/jquery.mmenu.all.css?v=5.7.1" />
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
-        <!--menu-->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes"/>
+    <title>Configure your own Audio System</title>
 
-		<script src="libs/jquery-3.0.0.js"></script> 
-                <script src="libs/jquery-ui.js"></script> 
-                
-<!--                <script src="libs/jquery.min.js"></script>                 -->
-                
-		<script type="text/javascript" src="libs/jquery.mmenu.all.min.js?v=5.7.1"></script>
-		                               
-                <script type="text/javascript">
-			$(function() {
-				$("#menu")
-					.mmenu({
-					extensions 	: [ "theme-black", "justified-listview", "effect-panels-slide-100", "effect-listitems-slide", "effect-menu-slide", "border-offset" ],
-					navbars		: [{
-						height 	: 3,
-						content : [ 
-							'<div class="left_b left_img"><img src="images/female.jpg" class="ml_circle"></div>',				
-							'<div class="left_b usr_mar_top left_img"><a href="index.html"><span class="usr_name_txt">Hello</span></a></div>'
-							   	  ]
-					}, true]
-					}, {
-					}).on( 'click',
-						'a[href^="#/"]',
-						function() {
-							alert( "Thank you for clicking, but that's not implement yet." );
-							return false;
-						}
-					);  
-                                
-                                
-                                        var $steps = $('.step');
-                                         $('#nextBtn').click(function() {
-                                             var $next = $steps.filter('.active').removeClass('active').next('.step');
-                                             if (!$next.length) $next = $steps.first();
-                                             $next.addClass('active');
-                                         });
+    <link rel="stylesheet" type="text/css" href="css/j.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slider.css"/>
 
-                                         $('#prevBtn').click(function() {
-                                             var $prev = $steps.filter('.active').removeClass('active').prev('.step');
-                                             if (!$prev.length) $prev = $steps.last();
-                                             $prev.addClass('active');
-                                         });     
+    <!--menu-->
+    <link rel="stylesheet" href="css/demo.css?v=5.7.1"/>
+    <link rel="stylesheet" href="css/jquery.mmenu.all.css?v=5.7.1"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <!--menu-->
 
-			});
-                        
-                        
-		</script>
-                
+    <script src="libs/jquery-3.0.0.js"></script>
+    <script src="libs/jquery-ui.js"></script>
 
-                <script>                
-                $(function(){
-			$('#spl').slider({
+    <!--                <script src="libs/jquery.min.js"></script>                 -->
+
+    <script type="text/javascript" src="libs/jquery.mmenu.all.min.js?v=5.7.1"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#menu")
+                .mmenu({
+                    extensions: ["theme-black", "justified-listview", "effect-panels-slide-100", "effect-listitems-slide", "effect-menu-slide", "border-offset"],
+                    navbars: [{
+                        height: 3,
+                        content: [
+                            '<div class="left_b left_img"><img src="images/female.jpg" class="ml_circle"></div>',
+                            '<div class="left_b usr_mar_top left_img"><a href="index.html"><span class="usr_name_txt">Hello</span></a></div>'
+                        ]
+                    }, true]
+                }, {}).on('click',
+                'a[href^="#/"]',
+                function () {
+                    alert("Thank you for clicking, but that's not implement yet.");
+                    return false;
+                }
+            );
+
+
+            var $steps = $('.step');
+            $('#nextBtn').click(function () {
+                var $next = $steps.filter('.active').removeClass('active').next('.step');
+                if (!$next.length) $next = $steps.first();
+                $next.addClass('active');
+            });
+
+            $('#prevBtn').click(function () {
+                var $prev = $steps.filter('.active').removeClass('active').prev('.step');
+                if (!$prev.length) $prev = $steps.last();
+                $prev.addClass('active');
+            });
+
+            $('#spl').slider({
                 range: 'min',
-				min: 50,
-				max: 140,
+                min: 50,
+                max: 140,
                 value: 65,
-                slide: function( event, ui ) {
-                    $( "#splVal" ).val(ui.value + "db" );
-                    cal(ui.value,$( "#area" ).slider( "value" ),$( "#frequency" ).slider( "values" ))
-                }
-			});     $( "#splVal" ).val( $( "#spl" ).slider( "value" ) + "db");
-
-			$('#area').slider({
-				range: 'min',
-                min: 1,
-                max: 100,
-				value: 45,
-                slide: function( event, ui ) {
-                    $( "#areaVal" ).val(ui.value + "m*m" );
-                    cal($( "#spl" ).slider( "value" ),ui.value,$( "#frequency" ).slider( "values" ))
-                }
-            });     $( "#areaVal" ).val( $( "#area" ).slider( "value" ) + "m*m");
-		
-			$('#frequency').slider({
-				range: true,
-                min: 0,
-                max: 22000,
-				values: [100,18000],
-                slide: function( event, ui ) {
-                    $( "#frequencyVal" ).val(ui.values[0] +" - "+ ui.values[1] + "Hz" );
-                    cal($( "#spl" ).slider( "value" ),$( "#area" ).slider( "value" ),ui.values)
+                slide: function (event, ui) {
+                    $("#splVal").val(ui.value + "db");
+                    cal()
                 }
             });
-			var val = $( "#frequency" ).slider( "values" );
-			$( "#frequencyVal" ).val(val[0] +" - "+ val[1]  + "Hz");
-                    cal($( "#spl" ).slider( "value" ),$( "#area" ).slider( "value" ),$( "#frequency" ).slider( "values" ));
-		});
-                function cal(db,area,reng) {
-                    $( "#powerO" ).val(((db*db*area/100*(reng[1]-reng[0])/1000)/2000).toFixed(2)+ "W");
-                    $( "#volumeL" ).val((db*area/100*(reng[1]-reng[0])/1000/500).toFixed(2)+" l");
-                    var price = (db*area*(reng[1]-reng[0])/10000000).toFixed(2)*1000;
-                    $( "#priceE" ).val("RS "+price +".00");
-                    $( "#priceF" ).val("RS "+price +".00");
-                }
-                function extra() {
-                    
-                }
-                </script>
+            $("#splVal").val($("#spl").slider("value") + "db");
 
-                
-                               
-                
+            $('#area').slider({
+                range: 'min',
+                min: 1,
+                max: 100,
+                value: 45,
+                slide: function (event, ui) {
+                    $("#areaVal").val(ui.value + "m*m");
+                    cal()
+                }
+            });
+            $("#areaVal").val($("#area").slider("value") + "m*m");
+
+            $('#frequency').slider({
+                range: true,
+                min: 0,
+                max: 22000,
+                values: [100, 18000],
+                slide: function (event, ui) {
+                    $("#frequencyVal").val(ui.values[0] + " - " + ui.values[1] + "Hz");
+                    cal()
+                }
+            });
+            var val = $("#frequency").slider("values");
+            $("#frequencyVal").val(val[0] + " - " + val[1] + "Hz");
+            cal();
+        });
+
+        function cal() {
+            var db = $("#spl").slider("value");
+            var area = $("#area").slider("value");
+            var reng = $("#frequency").slider("values");
+            $("#powerO").val(((db * db * area / 100 * (reng[1] - reng[0]) / 1000) / 2000).toFixed(2) + "W");
+            $("#volumeL").val((db * area / 100 * (reng[1] - reng[0]) / 1000 / 500).toFixed(2) + " l");
+            var price = (db * area * (reng[1] - reng[0]) / 10000000).toFixed(2) * 1000;
+            $("#priceE").val("RS " + price + ".00");
+            extra(price);
+        }
+        function extra(price) {
+            if ($("#bluetooth").is(":checked")) price = price + Number($("#bluetooth").val());
+            if ($("#wifi").is(":checked")) price = price + Number($("#wifi").val());
+            if ($("#usb").is(":checked")) price = price + Number($("#usb").val());
+            if ($("#internalStorage").is(":checked")) price = price + Number($("#internalStorage").val());
+            if ($("#aux").is(":checked")) price = price + Number($("#aux").val());
+            if ($("#fm").is(":checked")) price = price + Number($("#fm").val());
+            if ($("#dsp").is(":checked")) price = price + Number($("#dsp").val());
+            if ($("#equalizer").is(":checked")) price = price + Number($("#equalizer").val());
+            if ($("#compressor").is(":checked")) price = price + Number($("#compressor").val());
+            if ($("#agc").is(":checked")) price = price + Number($("#agc").val());
+            if ($("#isa").is(":checked")) price = price + Number($("#isa").val());
+            if ($("#wifiOnly").is(":checked")) price = price + Number($("#wifiOnly").val());
+            if ($("#analog").is(":checked")) price = price + Number($("#analog").val());
+            if ($("#tc").is(":checked")) price = price + Number($("#tc").val());
+            $("#priceF").val("RS " + price + ".00");
+
+        }
+    </script>
+
+
 </head>
 
 <body class="other_page">
-		
+
 <div class="overlay"></div>
-    
+
 <!-- M contain -->
-<div id="page">                
-				
+<div id="page">
 
-<!-- Structure BOF -->
-        <!-- container-->
-        <div class="other_container">
 
-            <div class="stretch img_top_rp">                       			
+    <!-- Structure BOF -->
+    <!-- container-->
+    <div class="other_container">
 
-                <!-- <div class="sti_log"></div> -->
+        <div class="stretch img_top_rp">
 
-                <div class="left_b margin-left_menu">                                                                        
+            <!-- <div class="sti_log"></div> -->
 
-                        <div class="each_cell">																					
+            <div class="left_b margin-left_menu">
 
-                                    <div class="left_b">
-                                        <!-- Menu -->
-                                        <div class="header">
-                                            <a href="#menu">
-                                                   <!-- No border icon -->
-                                                   <div class="hold_img_only icon_space">
-                                                            <div class="fa fa-bars with_without_bor_siz fa-bars_size_colu"></div>
-                                                   </div>
-                                                   <!-- No border icon -->     
-                                            </a>                    
-                                        </div>
-                                        <!-- Menu -->
-                                    </div>
+                <div class="each_cell">
 
-                                    <div class="left_b">
-                                        <h1 class="color_white left65 top16">Welcome</h1>
-                                    </div>                                                                                    
-
+                    <div class="left_b">
+                        <!-- Menu -->
+                        <div class="header">
+                            <a href="#menu">
+                                <!-- No border icon -->
+                                <div class="hold_img_only icon_space">
+                                    <div class="fa fa-bars with_without_bor_siz fa-bars_size_colu"></div>
+                                </div>
+                                <!-- No border icon -->
+                            </a>
                         </div>
+                        <!-- Menu -->
+                    </div>
 
-
-                        <div class="each_cell">
-
-                                <!-- bread -->
-                                <!-- Horizontal ul li-->                                    
-                                        <!--li-->
-                                                <div class="bre_navco cat_links">
-                                                        <ul>
-                                                                <li><a href="#">Home</a></li>
-                                                                <li><a href="#">Welcome</a></li>
-                                                        </ul>
-                                                </div>
-                                        <!--li-->                                       
-                                        <!-- Horizontal ul li-->        
-                                <!-- bread -->                                                                                       
-
-                        </div>
+                    <div class="left_b">
+                        <h1 class="color_white left65 top16">Welcome</h1>
+                    </div>
 
                 </div>
 
 
-                <div class="right_pos_abs "> 
+                <div class="each_cell">
 
-                    <div class="anest_lft_b right_spa">
-
-                             <div class="left_b right_spa">
-                                    <div id="foo"></div>
-                             </div>
-
+                    <!-- bread -->
+                    <!-- Horizontal ul li-->
+                    <!--li-->
+                    <div class="bre_navco cat_links">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Welcome</a></li>
+                        </ul>
                     </div>
-
-
-                    <div class="right_pos_abs min_icon_wid ">                                                                               
-
-                                 <div class="anest_lft_b">
-                                         <!-- No border icon -->
-                                         <a href="index.html">
-                                                 <div class="hold_img_only icon_space">
-                                                         <div class="fa fa-sign-out fa-rotate-180 with_without_bor_siz fa-bars_size_colu"></div>
-                                                 </div>
-                                         </a>
-                                         <!-- No border icon -->
-                                 </div>
-
-                    </div>
-
-
-                    <!-- time-->
-                    <script type='text/javascript'>//<![CDATA[
-                             window.onload=function(){
-                             var date = new Date();
-                             var n = date.toDateString();
-                             var time = date.toLocaleTimeString();
-
-                             document.getElementById('foo').innerHTML = n + ' ' + time;
-                             }//]]> 
-                    </script>          								                                    
-                    <!-- time-->
-
+                    <!--li-->
+                    <!-- Horizontal ul li-->
+                    <!-- bread -->
 
                 </div>
 
             </div>
 
 
-            <div class="stretch">                        	
+            <div class="right_pos_abs ">
 
-                <div class="middle_area">                                                
+                <div class="anest_lft_b right_spa">
 
-                        <div class="max_wra_big">                                    
+                    <div class="left_b right_spa">
+                        <div id="foo"></div>
+                    </div>
 
-                                <div class="gen_class_hold mob_also_spa_top">
+                </div>
 
-                                        <div class="box_show_all for_padding_box_show_all">
 
-                                                <!-- Loop from here-->
-                                                <div class="gen_class_hold">
+                <div class="right_pos_abs min_icon_wid ">
 
-                                                    <div class="form">
-                                                        
-                                                        <!-- +++++++++ div set 001 +++++++-->
-                                                        <div class="step active">
-                                                            
-                                                            <div class="each_cell spa_btm">
-                                                                <h1>Select the type of the audio system</h1>
-                                                            </div>
-                                                            
-                                                            <div class="each_cell spa_btm">
-                                                                <hr class="hrline line_wid">
-                                                            </div>
+                    <div class="anest_lft_b">
+                        <!-- No border icon -->
+                        <a href="index.html">
+                            <div class="hold_img_only icon_space">
+                                <div class="fa fa-sign-out fa-rotate-180 with_without_bor_siz fa-bars_size_colu"></div>
+                            </div>
+                        </a>
+                        <!-- No border icon -->
+                    </div>
 
-                                                            <div class="box_border">
-                                                            <!-- each input value -->
-                                                            <div class="each_cell spa_btm_form_val">
-                                                                <div class="flu_left padding_right">
-                                                                    <div class="cirval">
-                                                                           <input type="radio" name="audio" value="1"  checked>
-                                                                    </div>
-                                                                </div>
+                </div>
 
-                                                                <div class="flu_right">
-                                                                    <h2>
-                                                                        Bamboo series (new eco friendly electronic)
-                                                                    </h2>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <!-- each input value -->
-                                                                            
-                                                                            
-                                                            <!-- each input value -->
-                                                            <div class="each_cell spa_btm_form_val">
-                                                                <div class="flu_left padding_right">
-                                                                    <div class="cirval">
-                                                                        <input type="radio" name="audio" value="2">
-                                                                    </div>
-                                                                </div>
 
-                                                                <div class="flu_right">
-                                                                    <h2>
-                                                                        Portable audio
-                                                                    </h2>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <!-- each input value -->
-                                                                            
-                                                                            
-                                                            <!-- each input value -->
-                                                            <div class="each_cell spa_btm_form_val">
-                                                                <div class="flu_left padding_right">
-                                                                    <div class="cirval">
-                                                                        <input type="radio" name="audio" value="3">
-                                                                    </div>
-                                                                </div>
+                <!-- time-->
+                <script type='text/javascript'>//<![CDATA[
+                window.onload = function () {
+                    var date = new Date();
+                    var n = date.toDateString();
+                    var time = date.toLocaleTimeString();
 
-                                                                <div class="flu_right">
-                                                                    <h2>
-                                                                        Car audio
-                                                                    </h2>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <!-- each input value -->
-                                                                            
-                                                                            
-                                                            <!-- each input value -->
-                                                            <div class="each_cell spa_btm_form_val">
-                                                                <div class="flu_left padding_right">
-                                                                    <div class="cirval">
-                                                                        <input type="radio" name="audio" value="4">
-                                                                    </div>
-                                                                </div>
+                    document.getElementById('foo').innerHTML = n + ' ' + time;
+                }//]]>
+                </script>
+                <!-- time-->
 
-                                                                <div class="flu_right">
-                                                                    <h2>
-                                                                        Professional and PA sys
-                                                                    </h2>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <!-- each input value -->
 
-                                                                            
-                                                            <!-- each input value -->
-                                                            <div class="each_cell  spa_btm_form_val">
-                                                                <div class="flu_left padding_right">
+            </div>
 
-                                                                    <div class="cirval">
-                                                                        <input type="radio" name="audio" value="5">
-                                                                    </div>
+        </div>
 
-                                                                </div>
-                                                                <div class="flu_right">
-                                                                    <h2>
-                                                                        Home theater system
-                                                                    </h2>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <!-- each input value -->
 
-                                                            </div>
+        <div class="stretch">
 
-                                                            <div class="box_border">
-                                                                <!-- each input value -->
-                                                                <div class="each_cell  spa_btm_form_val">
-                                                                    <div class="flu_left padding_right">
+            <div class="middle_area">
 
-                                                                        <div class="cirval">
-                                                                            <input type="radio" name="audio2" value="1">
-                                                                        </div>
+                <div class="max_wra_big">
 
-                                                                    </div>
-                                                                    <div class="flu_right">
-                                                                        <h2>
-                                                                            User(sound range design facilities)
-                                                                        </h2>
-                                                                    </div>
+                    <div class="gen_class_hold mob_also_spa_top">
 
-                                                                </div>
-                                                                <!-- each input value -->
+                        <div class="box_show_all for_padding_box_show_all">
 
-                                                                <!-- each input value -->
-                                                                <div class="each_cell  spa_btm_form_val">
-                                                                    <div class="flu_left padding_right">
+                            <!-- Loop from here-->
+                            <div class="gen_class_hold">
 
-                                                                        <div class="cirval">
-                                                                            <input type="radio" name="audio2" value="2">
-                                                                        </div>
+                                <div class="form">
 
-                                                                    </div>
-                                                                    <div class="flu_right">
-                                                                        <h2>
-                                                                            Engineers(freq spectrum+Q volume+gain design facilities)
-                                                                        </h2>
-                                                                    </div>
+                                    <!-- +++++++++ div set 001 +++++++-->
+                                    <div class="step active">
 
-                                                                </div>
-                                                                <!-- each input value -->
+                                        <div class="each_cell spa_btm">
+                                            <h1>Select the type of the audio system</h1>
+                                        </div>
 
-                                                                <!-- each input value -->
-                                                                <div class="each_cell  spa_btm_form_val">
-                                                                    <div class="flu_left padding_right">
+                                        <div class="each_cell spa_btm">
+                                            <hr class="hrline line_wid">
+                                        </div>
 
-                                                                        <div class="cirval">
-                                                                            <input type="radio" name="audio2" value="3">
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="flu_right">
-                                                                        <h2>
-                                                                            Expert(fill all the parameters manually facilities+ parts brand)
-                                                                        </h2>
-                                                                    </div>
-
-                                                                </div>
-                                                                <!-- each input value -->
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- +++++++++ div set 001 +++++++-->
-
-
-                                                        <!-- +++++++++ div set 002 +++++++-->
-                                                        <div class="step">
-
-                                                            <div class="each_cell spa_btm">
-                                                                <h1>Select the system working range</h1>
-                                                            </div>
-
-                                                            <div class="each_cell spa_btm">
-                                                                <hr class="hrline line_wid">
-                                                            </div>
-
-                                                            <!-- component -->
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>SPL(DB) (50db-140db)</h1>
-                                                                    <input type="text" id="splVal" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                                <div class="each_cell">
-                                                                    <section>
-                                                                        <span class="tooltip"></span>
-                                                                        <div id="spl" class="slider type2"></div>
-                                                                        <span class="volume"></span>
-                                                                    </section>
-                                                                </div>
-
-                                                            </div>
-                                                            <!-- component -->
-
-                                                            <!-- component -->
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>Area Sq. meter (1-100)</h1>
-                                                                    <input type="text" id="areaVal" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                                <div class="each_cell">
-                                                                    <section>
-                                                                        <span class="tooltip"></span>
-                                                                        <div id="area" class="slider type2"></div>
-                                                                        <span class="volume"></span>
-                                                                    </section>
-                                                                </div>
-
-                                                            </div>
-                                                            <!-- component -->
-
-
-                                                            <!-- component -->
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>frequency range (5Hz-22kHz)</h1>
-                                                                    <input type="text" id="frequencyVal" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                                <div class="each_cell">
-                                                                    <section>
-                                                                        <span class="tooltip"></span>
-                                                                        <div id="frequency" class="slider type2"></div>
-                                                                        <span class="volume"></span>
-                                                                    </section>
-                                                                </div>
-
-                                                            </div>
-                                                            <!-- component -->
-
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>Out put power : </h1>
-                                                                    <input type="text" id="powerO" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>System size : </h1>
-                                                                    <input type="text" id="volumeL" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>Estimated price : </h1>
-                                                                    <input type="text" id="priceE" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                            </div>
-
-
-                                                        </div>
-                                                        <!-- +++++++++ div set 002 +++++++-->
-                                                        
-                                                        <!-- +++++++++ div set 003 +++++++-->
-                                                        <div class="step">
-                                                            
-                                                            <div class="each_cell spa_btm">
-                                                                <h1>Facilities configuration</h1>
-                                                            </div>
-                                                            
-                                                            <div class="each_cell spa_btm">
-                                                                <hr class="hrline line_wid">
-                                                            </div>
-                                                            
-                                                            <div class="gen_class_hold_for_this">
-                                                                
-                                                                <!-- 1 each input value -->
-                                                                <div class="table_cell">
-                                                                    
-                                                                        <!-- heading -->
-                                                                        <div class="each_cell spa_btm">
-                                                                            <h1>Input</h1>
-                                                                        </div>
-
-                                                                        <div class="each_cell spa_btm">
-                                                                            <hr class="hrline line_wid">
-                                                                        </div>
-                                                                        <!-- heading -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Bluetooth
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Wifi
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    USB
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                    <!-- each input value -->
-                                                                    <div class="each_cell spa_btm_form_val_box">
-                                                                        <div class="flu_left padding_right">
-                                                                            <div class="cirval">
-                                                                                <input type="checkbox" name="radio" value="CBR">
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="flu_right">
-                                                                            <h2>
-                                                                                Internal storage
-                                                                            </h2>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <!-- each input value -->
-                                                                    <!-- each input value -->
-                                                                    <div class="each_cell spa_btm_form_val_box">
-                                                                        <div class="flu_left padding_right">
-                                                                            <div class="cirval">
-                                                                                <input type="checkbox" name="radio" value="CBR">
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="flu_right">
-                                                                            <h2>
-                                                                                AUX
-                                                                            </h2>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <!-- each input value -->
-                                                                    <!-- each input value -->
-                                                                    <div class="each_cell spa_btm_form_val_box">
-                                                                        <div class="flu_left padding_right">
-                                                                            <div class="cirval">
-                                                                                <input type="checkbox" name="radio" value="CBR">
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="flu_right">
-                                                                            <h2>
-                                                                                FM tuner
-                                                                            </h2>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <!-- each input value -->
-                                                                    <!-- each input value -->
-                                                                    <div class="each_cell spa_btm_form_val_box">
-                                                                        <div class="flu_left padding_right">
-                                                                            <div class="cirval">
-                                                                                <input type="checkbox" name="radio" value="CBR">
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="flu_right">
-                                                                            <h2>
-                                                                                DSP mic mixer(experimental design)
-                                                                            </h2>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <!-- each input value -->
-                                                                    
-                                                                    
-                                                                </div>
-                                                                <!-- 1 each input value -->
-                                                                           
-                                                                            
-                                                                <!-- 2 each input value -->
-                                                                <div class="table_cell">
-                                                                    
-                                                                        <!-- heading -->
-                                                                        <div class="each_cell spa_btm">
-                                                                            <h1>Process</h1>
-                                                                        </div>
-
-                                                                        <div class="each_cell spa_btm">
-                                                                            <hr class="hrline line_wid">
-                                                                        </div>
-                                                                        <!-- heading -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Equalizer
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Compressor
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Automatic gain control
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Intelligent sound adjustment(experimental design)
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-                                                                    
-                                                                </div>
-                                                                <!-- 2 each input value -->
-
-                                                                            
-                                                                <!-- 3 each input value -->
-                                                                <div class="table_cell">
-                                                                        
-                                                                        <!-- heading -->
-                                                                        <div class="each_cell spa_btm">
-                                                                            <h1>Controllers</h1>
-                                                                        </div>
-
-                                                                        <div class="each_cell spa_btm">
-                                                                            <hr class="hrline line_wid">
-                                                                        </div>
-                                                                        <!-- heading -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Wifi only
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Analog
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                        <!-- each input value -->
-                                                                        <div class="each_cell spa_btm_form_val_box">
-                                                                            <div class="flu_left padding_right">
-                                                                                <div class="cirval">
-                                                                                    <input type="checkbox" name="radio" value="CBR">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="flu_right">
-                                                                                <h2>
-                                                                                    Touch control(TFT display)
-                                                                                </h2>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <!-- each input value -->
-
-                                                                    
-                                                                </div>
-                                                                <!-- 3 each input value -->
-                                                                                                                                
-                                                            </div>
-                                                            <div class="each_cell spa_btm_form_val">
-
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>Estimated price : </h1>
-                                                                    <input type="text" id="priceF" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                                                                </div>
-
-                                                            </div>
-
-
-
-
-                                                        </div>
-                                                        <!-- +++++++++ div set 003 +++++++-->
-
-
-
-
-
-                                                        
-                                                        
-                                                        
-                                                        <!-- +++++++++ div set 004 +++++++-->
-                                                        <div class="step">
-                                                                
-                                                            Dear please let me know if a change is want.
-                                                            
-                                                        </div>
-                                                        <!-- +++++++++ div set 004 +++++++-->
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        <button id="prevBtn" class="btn_janith">Prev</button>
-                                                        <button id="nextBtn" class="btn_janith">Next</button>
-                                                        
-                                                        
-                                                        
+                                        <div class="box_border">
+                                            <!-- each input value -->
+                                            <div class="each_cell spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio" value="1" checked>
                                                     </div>
-                                                    
-<!--                                                    <div class="each_cell spa_btm_line">
+                                                </div>
 
-                                                    </div>-->
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Bamboo series (new eco friendly electronic)
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+
+
+                                            <!-- each input value -->
+                                            <div class="each_cell spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio" value="2">
+                                                    </div>
+                                                </div>
+
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Portable audio
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+
+
+                                            <!-- each input value -->
+                                            <div class="each_cell spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio" value="3">
+                                                    </div>
+                                                </div>
+
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Car audio
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+
+
+                                            <!-- each input value -->
+                                            <div class="each_cell spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio" value="4">
+                                                    </div>
+                                                </div>
+
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Professional and PA sys
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+
+
+                                            <!-- each input value -->
+                                            <div class="each_cell  spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio" value="5">
+                                                    </div>
 
                                                 </div>
-                                                <!-- loop from here-->
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Home theater system
+                                                    </h2>
+                                                </div>
 
+                                            </div>
+                                            <!-- each input value -->
+
+                                        </div>
+
+                                        <div class="box_border">
+                                            <!-- each input value -->
+                                            <div class="each_cell  spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio2" value="1">
+                                                    </div>
+
+                                                </div>
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        User(sound range design facilities)
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+
+                                            <!-- each input value -->
+                                            <div class="each_cell  spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio2" value="2">
+                                                    </div>
+
+                                                </div>
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Engineers(freq spectrum+Q volume+gain design facilities)
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+
+                                            <!-- each input value -->
+                                            <div class="each_cell  spa_btm_form_val">
+                                                <div class="flu_left padding_right">
+
+                                                    <div class="cirval">
+                                                        <input type="radio" name="audio2" value="3">
+                                                    </div>
+
+                                                </div>
+                                                <div class="flu_right">
+                                                    <h2>
+                                                        Expert(fill all the parameters manually facilities+ parts brand)
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <!-- each input value -->
+                                        </div>
+
+                                    </div>
+                                    <!-- +++++++++ div set 001 +++++++-->
+
+
+                                    <!-- +++++++++ div set 002 +++++++-->
+                                    <div class="step">
+
+                                        <div class="each_cell spa_btm">
+                                            <h1>Select the system working range</h1>
+                                        </div>
+
+                                        <div class="each_cell spa_btm">
+                                            <hr class="hrline line_wid">
+                                        </div>
+
+                                        <!-- component -->
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>SPL(DB) (50db-140db)</h1>
+                                                <input type="text" id="splVal" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
+
+                                            <div class="each_cell">
+                                                <section>
+                                                    <span class="tooltip"></span>
+                                                    <div id="spl" class="slider type2"></div>
+                                                    <span class="volume"></span>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!-- component -->
+
+                                        <!-- component -->
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>Area Sq. meter (1-100)</h1>
+                                                <input type="text" id="areaVal" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
+
+                                            <div class="each_cell">
+                                                <section>
+                                                    <span class="tooltip"></span>
+                                                    <div id="area" class="slider type2"></div>
+                                                    <span class="volume"></span>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!-- component -->
+
+
+                                        <!-- component -->
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>frequency range (5Hz-22kHz)</h1>
+                                                <input type="text" id="frequencyVal" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
+
+                                            <div class="each_cell">
+                                                <section>
+                                                    <span class="tooltip"></span>
+                                                    <div id="frequency" class="slider type2"></div>
+                                                    <span class="volume"></span>
+                                                </section>
+                                            </div>
+
+                                        </div>
+                                        <!-- component -->
+
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>Out put power : </h1>
+                                                <input type="text" id="powerO" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
+
+                                        </div>
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>System size : </h1>
+                                                <input type="text" id="volumeL" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
+
+                                        </div>
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>Estimated price : </h1>
+                                                <input type="text" id="priceE" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
 
                                         </div>
 
 
+                                    </div>
+                                    <!-- +++++++++ div set 002 +++++++-->
+
+                                    <!-- +++++++++ div set 003 +++++++-->
+                                    <div class="step">
+
+                                        <div class="each_cell spa_btm">
+                                            <h1>Facilities configuration</h1>
+                                        </div>
+
+                                        <div class="each_cell spa_btm">
+                                            <hr class="hrline line_wid">
+                                        </div>
+
+                                        <div class="gen_class_hold_for_this">
+
+                                            <!-- 1 each input value -->
+                                            <div class="table_cell">
+
+                                                <!-- heading -->
+                                                <div class="each_cell spa_btm">
+                                                    <h1>Input</h1>
+                                                </div>
+
+                                                <div class="each_cell spa_btm">
+                                                    <hr class="hrline line_wid">
+                                                </div>
+                                                <!-- heading -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="bluetooth" value="200" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Bluetooth
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="wifi" value="1000" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Wifi
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="usb" value="100" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            USB
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="internalStorage" value="500" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Internal storage
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="aux" value="100" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            AUX
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="fm" value="150" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            FM tuner
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="dsp" value="1000" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            DSP mic mixer(experimental design)
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+
+                                            </div>
+                                            <!-- 1 each input value -->
+
+
+                                            <!-- 2 each input value -->
+                                            <div class="table_cell">
+
+                                                <!-- heading -->
+                                                <div class="each_cell spa_btm">
+                                                    <h1>Process</h1>
+                                                </div>
+
+                                                <div class="each_cell spa_btm">
+                                                    <hr class="hrline line_wid">
+                                                </div>
+                                                <!-- heading -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="equalizer" value="400" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Equalizer
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="compressor" value="600" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Compressor
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="agc" value="350" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Automatic gain control
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="isa" value="500" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Intelligent sound adjustment(experimental design)
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                            </div>
+                                            <!-- 2 each input value -->
+
+
+                                            <!-- 3 each input value -->
+                                            <div class="table_cell">
+
+                                                <!-- heading -->
+                                                <div class="each_cell spa_btm">
+                                                    <h1>Controllers</h1>
+                                                </div>
+
+                                                <div class="each_cell spa_btm">
+                                                    <hr class="hrline line_wid">
+                                                </div>
+                                                <!-- heading -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="wifiOnly" value="250" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Wifi only
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="analog" value="400" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Analog
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+                                                <!-- each input value -->
+                                                <div class="each_cell spa_btm_form_val_box">
+                                                    <div class="flu_left padding_right">
+                                                        <div class="cirval">
+                                                            <input type="checkbox" id="tc" value="1000" onchange="cal()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flu_right">
+                                                        <h2>
+                                                            Touch control(TFT display)
+                                                        </h2>
+                                                    </div>
+
+                                                </div>
+                                                <!-- each input value -->
+
+
+                                            </div>
+                                            <!-- 3 each input value -->
+
+                                        </div>
+                                        <div class="each_cell spa_btm_form_val">
+
+                                            <div class="each_cell spa_btm">
+                                                <h1>Estimated price : </h1>
+                                                <input type="text" id="priceF" readonly
+                                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- +++++++++ div set 003 +++++++-->
+
+
+                                    <!-- +++++++++ div set 004 +++++++-->
+                                    <div class="step">
+
+                                        Dear please let me know if a change is want.
+
+                                    </div>
+                                    <!-- +++++++++ div set 004 +++++++-->
+
+
+                                    <button id="prevBtn" class="btn_janith">Prev</button>
+                                    <button id="nextBtn" class="btn_janith">Next</button>
+
+
+                                </div>
+
+                                <!--                                                    <div class="each_cell spa_btm_line">
+
+                                                                                    </div>-->
+
+                            </div>
+                            <!-- loop from here-->
 
 
                         </div>
 
-                </div>                                    
-
+                    </div>
+                </div>
 
             </div>
 
-</div>
-	<!-- container -->
+
+        </div>
+
+    </div>
+    <!-- container -->
 
 
-
-<!-- Structure EOF -->
-
-
-
-
-
+    <!-- Structure EOF -->
 
 
 </div>
-<!-- M contain -->        
+<!-- M contain -->
 
 
-		
 <!-- Menu -->
 <nav id="menu">
-        <ul>
-          <li><a href="Home.html">Home</a></li>       
-          <li><a href="About.html">About</a></li>
-          <li><a href="version.html">Version</a></li>
-        </ul>
-</nav>                     
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="version.html">Version</a></li>
+    </ul>
+</nav>
 <!-- menu -->
 
-	</body>
+</body>
 </html>
