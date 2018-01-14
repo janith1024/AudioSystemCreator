@@ -33,14 +33,14 @@
 						height 	: 3,
 						content : [ 
 							'<div class="left_b left_img"><img src="images/female.jpg" class="ml_circle"></div>',				
-							'<div class="left_b usr_mar_top left_img"><a href="index.html"><span class="usr_name_txt">Hi Ishfaak</span></a></div>'
+							'<div class="left_b usr_mar_top left_img"><a href="index.html"><span class="usr_name_txt">Hello</span></a></div>'
 							   	  ]
 					}, true]
 					}, {
 					}).on( 'click',
 						'a[href^="#/"]',
 						function() {
-							alert( "Thank you for clicking, but that's a demo link." );
+							alert( "Thank you for clicking, but that's not implement yet." );
 							return false;
 						}
 					);  
@@ -74,23 +74,25 @@
 				value: 30
 			});
 			
-			$('#slider2').slider({
-				range: true,
-				min: 0,
-				max: 100,
-				values: [15,50]
+			$('#spl').slider({
+                range: 'min',
+				min: 50,
+				max: 140,
+                value: 65
 			});
 
-			$('#slider3').slider({
+			$('#area').slider({
 				range: 'min',
+                min: 1,
+                max: 100,
 				value: 45
 			});
 		
-			$('#slider4').slider({
+			$('#frequency').slider({
 				range: true,
-				min: 0,
-				max: 100,
-				values: [60,80]
+                min: 0,
+                max: 22000,
+				values: [100,18000]
 			});
 		});
                 </script>
@@ -382,14 +384,83 @@
 
                                                         </div>
                                                         <!-- +++++++++ div set 001 +++++++-->
-                                                        
-                                                        
-                                                        
+
+
                                                         <!-- +++++++++ div set 002 +++++++-->
+                                                        <div class="step">
+
+                                                            <div class="each_cell spa_btm">
+                                                                <h1>Select the system working range</h1>
+                                                            </div>
+
+                                                            <div class="each_cell spa_btm">
+                                                                <hr class="hrline line_wid">
+                                                            </div>
+
+                                                            <!-- component -->
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>SPL(DB) (50db-140db)</h1>
+                                                                </div>
+
+                                                                <div class="each_cell">
+                                                                    <section>
+                                                                        <span class="tooltip"></span>
+                                                                        <div id="spl" class="slider type2"></div>
+                                                                        <span class="volume"></span>
+                                                                    </section>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- component -->
+
+                                                            <!-- component -->
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>Area Sq. meter (1-100)</h1>
+                                                                </div>
+
+                                                                <div class="each_cell">
+                                                                    <section>
+                                                                        <span class="tooltip"></span>
+                                                                        <div id="area" class="slider type2"></div>
+                                                                        <span class="volume"></span>
+                                                                    </section>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- component -->
+
+
+                                                            <!-- component -->
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>frequency range (5Hz-22kHz)</h1>
+                                                                </div>
+
+                                                                <div class="each_cell">
+                                                                    <section>
+                                                                        <span class="tooltip"></span>
+                                                                        <div id="frequency" class="slider type2"></div>
+                                                                        <span class="volume"></span>
+                                                                    </section>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- component -->
+
+
+                                                        </div>
+                                                        <!-- +++++++++ div set 002 +++++++-->
+                                                        
+                                                        <!-- +++++++++ div set 003 +++++++-->
                                                         <div class="step">
                                                             
                                                             <div class="each_cell spa_btm">
-                                                                <h1>Your suitable heading here</h1>
+                                                                <h1>Select the system working range</h1>
                                                             </div>
                                                             
                                                             <div class="each_cell spa_btm">
@@ -658,63 +729,12 @@
                                                                                                                
                                                             
                                                         </div>
-                                                        <!-- +++++++++ div set 002 +++++++-->
-                                                        
-                                                        
-                                                        
-                                                        
                                                         <!-- +++++++++ div set 003 +++++++-->
-                                                        <div class="step">
-                                                            
-                                                                <div class="each_cell spa_btm">
-                                                                    <h1>Your suitable heading here</h1>
-                                                                </div>
 
-                                                                <div class="each_cell spa_btm">
-                                                                    <hr class="hrline line_wid">
-                                                                </div>
-                                                            
-                                                                <!-- component -->
-                                                                <div class="each_cell spa_btm_form_val">
-                                                                    
-                                                                    <div class="each_cell spa_btm">
-                                                                        <h1>Your suitable heading here</h1>
-                                                                    </div>
-                                                                    
-                                                                    <div class="each_cell">
-                                                                        <section>
-                                                                            <span class="tooltip"></span>
-                                                                            <div id="slider3" class="slider type2"></div>
-                                                                            <span class="volume"></span>
-                                                                        </section>
-                                                                    </div>
-                                                                                                                                        
-                                                                </div>
-                                                                <!-- component -->
-                                                                
-                                                                
-                                                                <!-- component -->
-                                                                <div class="each_cell spa_btm_form_val">
-                                                                    
-                                                                    <div class="each_cell spa_btm">
-                                                                        <h1>Your suitable heading here</h1>
-                                                                    </div>
-                                                                    
-                                                                    <div class="each_cell">
-                                                                        <section>
-                                                                                <span class="tooltip"></span>
-                                                                                <div id="slider4" class="slider type2"></div>
-                                                                                <span class="volume"></span>
-                                                                        </section>
-                                                                    </div>
-                                                                                                                                        
-                                                                </div>
-                                                                <!-- component -->
 
-                                                            
-                                                        </div>
-                                                        <!-- +++++++++ div set 003 +++++++-->
-                                                        
+
+
+
                                                         
                                                         
                                                         
