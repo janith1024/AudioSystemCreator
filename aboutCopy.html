@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8" />	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+	<title>Jani</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/j.css" />
+        <link rel="stylesheet" type="text/css" href="css/slider.css" />
+			
+        <!--menu-->
+        <link rel="stylesheet" href="css/demo.css?v=5.7.1" />
+        <link rel="stylesheet" href="css/jquery.mmenu.all.css?v=5.7.1" />
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <!--menu-->
+
+		<script src="libs/jquery-3.0.0.js"></script> 
+                <script src="libs/jquery-ui.js"></script> 
+                
+<!--                <script src="libs/jquery.min.js"></script>                 -->
+                
+		<script type="text/javascript" src="libs/jquery.mmenu.all.min.js?v=5.7.1"></script>
+		                               
+                <script type="text/javascript">
+			$(function() {
+				$("#menu")
+					.mmenu({
+					extensions 	: [ "theme-black", "justified-listview", "effect-panels-slide-100", "effect-listitems-slide", "effect-menu-slide", "border-offset" ],
+					navbars		: [{
+						height 	: 3,
+						content : [ 
+							'<div class="left_b left_img"><img src="images/female.jpg" class="ml_circle"></div>',				
+							'<div class="left_b usr_mar_top left_img"><a href="index.html"><span class="usr_name_txt">Hi Ishfaak</span></a></div>'
+							   	  ]
+					}, true]
+					}, {
+					}).on( 'click',
+						'a[href^="#/"]',
+						function() {
+							alert( "Thank you for clicking, but that's a demo link." );
+							return false;
+						}
+					);  
+                                
+                                
+                                        var $steps = $('.step');
+                                         $('#nextBtn').click(function() {
+                                             var $next = $steps.filter('.active').removeClass('active').next('.step');
+                                             if (!$next.length) $next = $steps.first();
+                                             $next.addClass('active');
+                                         });
+
+                                         $('#prevBtn').click(function() {
+                                             var $prev = $steps.filter('.active').removeClass('active').prev('.step');
+                                             if (!$prev.length) $prev = $steps.last();
+                                             $prev.addClass('active');
+                                         });     
+
+			});
+                        
+                        
+		</script>
+                
+
+                <script>                
+                $(function(){
+			$('.slider').slider();
+
+			$('#slider1').slider({
+				range: 'min',
+				value: 30
+			});
+			
+			$('#slider2').slider({
+				range: true,
+				min: 0,
+				max: 100,
+				values: [15,50]
+			});
+
+			$('#slider3').slider({
+				range: 'min',
+				value: 45
+			});
+		
+			$('#slider4').slider({
+				range: true,
+				min: 0,
+				max: 100,
+				values: [60,80]
+			});
+		});
+                </script>
+
+                
+                               
+                
+</head>
+
+<body class="other_page">
+		
+<div class="overlay"></div>
+    
+<!-- M contain -->
+<div id="page">                
+				
+
+<!-- Structure BOF -->
+        <!-- container-->
+        <div class="other_container">
+
+            <div class="stretch img_top_rp">                       			
+
+                <!-- <div class="sti_log"></div> -->
+
+                <div class="left_b margin-left_menu">                                                                        
+
+                        <div class="each_cell">																					
+
+                                    <div class="left_b">
+                                        <!-- Menu -->
+                                        <div class="header">
+                                            <a href="#menu">
+                                                   <!-- No border icon -->
+                                                   <div class="hold_img_only icon_space">
+                                                            <div class="fa fa-bars with_without_bor_siz fa-bars_size_colu"></div>
+                                                   </div>
+                                                   <!-- No border icon -->     
+                                            </a>                    
+                                        </div>
+                                        <!-- Menu -->
+                                    </div>
+
+                                    <div class="left_b">
+                                        <h1 class="color_white left65 top16">Welcome</h1>
+                                    </div>                                                                                    
+
+                        </div>
+
+
+                        <div class="each_cell">
+
+                                <!-- bread -->
+                                <!-- Horizontal ul li-->                                    
+                                        <!--li-->
+                                                <div class="bre_navco cat_links">
+                                                        <ul>
+                                                                <li><a href="#">Home</a></li>
+                                                                <li><a href="#">Welcome</a></li>
+                                                        </ul>
+                                                </div>
+                                        <!--li-->                                       
+                                        <!-- Horizontal ul li-->        
+                                <!-- bread -->                                                                                       
+
+                        </div>
+
+                </div>
+
+
+                <div class="right_pos_abs "> 
+
+                    <div class="anest_lft_b right_spa">
+
+                             <div class="left_b right_spa">
+                                    <div id="foo"></div>
+                             </div>
+
+                    </div>
+
+
+                    <div class="right_pos_abs min_icon_wid ">                                                                               
+
+                                 <div class="anest_lft_b">
+                                         <!-- No border icon -->
+                                         <a href="index.html">
+                                                 <div class="hold_img_only icon_space">
+                                                         <div class="fa fa-sign-out fa-rotate-180 with_without_bor_siz fa-bars_size_colu"></div>
+                                                 </div>
+                                         </a>
+                                         <!-- No border icon -->
+                                 </div>
+
+                    </div>
+
+
+                    <!-- time-->
+                    <script type='text/javascript'>//<![CDATA[
+                             window.onload=function(){
+                             var date = new Date();
+                             var n = date.toDateString();
+                             var time = date.toLocaleTimeString();
+
+                             document.getElementById('foo').innerHTML = n + ' ' + time;
+                             }//]]> 
+                    </script>          								                                    
+                    <!-- time-->
+
+
+                </div>
+
+            </div>
+
+
+            <div class="stretch">                        	
+
+                <div class="middle_area">                                                
+
+                        <div class="max_wra_big">                                    
+
+                                <div class="gen_class_hold mob_also_spa_top">
+
+                                        <div class="box_show_all for_padding_box_show_all">
+
+                                                <!-- Loop from here-->
+                                                <div class="gen_class_hold">
+
+                                                    <div class="form">
+                                                        
+                                                        <!-- +++++++++ div set 001 +++++++-->
+                                                        <div class="step active">
+                                                            
+                                                            <div class="each_cell spa_btm">
+                                                                <h1>Your suitable heading here</h1>
+                                                            </div>
+                                                            
+                                                            <div class="each_cell spa_btm">
+                                                                <hr class="hrline line_wid">
+                                                            </div>
+                                                            
+                                                            <!-- each input value -->
+                                                            <div class="each_cell spa_btm_form_val">
+                                                                <div class="flu_left padding_right">
+                                                                    <div class="cirval">
+                                                                           <input type="radio" name="gender" value="male">                                                                         
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="flu_right height_for_right">
+                                                                    <h2>
+                                                                        The text is here is for the option to select
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- each input value -->
+                                                                            
+                                                                            
+                                                            <!-- each input value -->
+                                                            <div class="each_cell spa_btm_form_val">
+                                                                <div class="flu_left padding_right">
+                                                                    <div class="cirval">
+                                                                           <input type="radio" name="gender" value="male">                                                                         
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="flu_right height_for_right">
+                                                                    <h2>
+                                                                        The text is here is for the option to select
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- each input value -->
+                                                                            
+                                                                            
+                                                            <!-- each input value -->
+                                                            <div class="each_cell spa_btm_form_val">
+                                                                <div class="flu_left padding_right">
+                                                                    <div class="cirval">
+                                                                           <input type="radio" name="gender" value="male">                                                                         
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="flu_right height_for_right">
+                                                                    <h2>
+                                                                        The text is here is for the option to select
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- each input value -->
+                                                                            
+                                                                            
+                                                            <!-- each input value -->
+                                                            <div class="each_cell spa_btm_form_val">
+                                                                <div class="flu_left padding_right">
+                                                                    <div class="cirval">
+                                                                           <input type="radio" name="gender" value="male">                                                                         
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="flu_right height_for_right">
+                                                                    <h2>
+                                                                        The text is here is for the option to select
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- each input value -->
+
+                                                                            
+                                                            <!-- each input value -->
+                                                            <div class="each_cell spa_btm_form_val">
+                                                                <div class="flu_left padding_right">
+                                                                    <div class="cirval">
+                                                                           <input type="radio" name="gender" value="male">                                                                         
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="flu_right height_for_right">
+                                                                    <h2>
+                                                                        The text is here is for the option to select
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- each input value -->
+                                                                            
+                                                                            
+                                                            <!-- each input value -->
+                                                            <div class="each_cell spa_btm_form_val">
+                                                                <div class="flu_left padding_right">
+                                                                    <div class="cirval">
+                                                                           <input type="radio" name="gender" value="male">                                                                         
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="flu_right height_for_right">
+                                                                    <h2>
+                                                                        The text is here is for the option to select
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- each input value -->
+                                                            
+                                                        </div>
+                                                        <!-- +++++++++ div set 001 +++++++-->
+                                                        
+                                                        
+                                                        
+                                                        <!-- +++++++++ div set 002 +++++++-->
+                                                        <div class="step">
+                                                            
+                                                            <div class="each_cell spa_btm">
+                                                                <h1>Your suitable heading here</h1>
+                                                            </div>
+                                                            
+                                                            <div class="each_cell spa_btm">
+                                                                <hr class="hrline line_wid">
+                                                            </div>
+                                                            
+                                                            <div class="gen_class_hold_for_this">
+                                                                
+                                                                <!-- 1 each input value -->
+                                                                <div class="table_cell">
+                                                                    
+                                                                        <!-- heading -->
+                                                                        <div class="each_cell spa_btm">
+                                                                            <h1>Your suitable heading here</h1>
+                                                                        </div>
+
+                                                                        <div class="each_cell spa_btm">
+                                                                            <hr class="hrline line_wid">
+                                                                        </div>
+                                                                        <!-- heading -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+                                                                    
+                                                                    
+                                                                </div>
+                                                                <!-- 1 each input value -->
+                                                                           
+                                                                            
+                                                                <!-- 2 each input value -->
+                                                                <div class="table_cell">
+                                                                    
+                                                                        <!-- heading -->
+                                                                        <div class="each_cell spa_btm">
+                                                                            <h1>Your suitable heading here</h1>
+                                                                        </div>
+
+                                                                        <div class="each_cell spa_btm">
+                                                                            <hr class="hrline line_wid">
+                                                                        </div>
+                                                                        <!-- heading -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+                                                                    
+                                                                </div>
+                                                                <!-- 2 each input value -->
+
+                                                                            
+                                                                <!-- 3 each input value -->
+                                                                <div class="table_cell">
+                                                                        
+                                                                        <!-- heading -->
+                                                                        <div class="each_cell spa_btm">
+                                                                            <h1>Your suitable heading here</h1>
+                                                                        </div>
+
+                                                                        <div class="each_cell spa_btm">
+                                                                            <hr class="hrline line_wid">
+                                                                        </div>
+                                                                        <!-- heading -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->
+
+                                                                        <!-- each input value -->
+                                                                        <div class="each_cell spa_btm_form_val_box">
+                                                                            <div class="flu_left padding_right">
+                                                                                <div class="cirval">
+                                                                                    <input type="checkbox" name="radio" value="CBR">
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="flu_right height_for_right">
+                                                                                <h2>
+                                                                                    The text is here is for the option to select
+                                                                                </h2>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <!-- each input value -->                                                                    
+                                                                    
+                                                                </div>
+                                                                <!-- 3 each input value -->
+                                                                                                                                
+                                                            </div>                                                            
+                                                          
+                                                                                                               
+                                                            
+                                                        </div>
+                                                        <!-- +++++++++ div set 002 +++++++-->
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <!-- +++++++++ div set 003 +++++++-->
+                                                        <div class="step">
+                                                            
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>Your suitable heading here</h1>
+                                                                </div>
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <hr class="hrline line_wid">
+                                                                </div>
+                                                            
+                                                                <!-- component -->
+                                                                <div class="each_cell spa_btm_form_val">
+                                                                    
+                                                                    <div class="each_cell spa_btm">
+                                                                        <h1>Your suitable heading here</h1>
+                                                                    </div>
+                                                                    
+                                                                    <div class="each_cell">
+                                                                        <section>
+                                                                            <span class="tooltip"></span>
+                                                                            <div id="slider3" class="slider type2"></div>
+                                                                            <span class="volume"></span>
+                                                                        </section>
+                                                                    </div>
+                                                                                                                                        
+                                                                </div>
+                                                                <!-- component -->
+                                                                
+                                                                
+                                                                <!-- component -->
+                                                                <div class="each_cell spa_btm_form_val">
+                                                                    
+                                                                    <div class="each_cell spa_btm">
+                                                                        <h1>Your suitable heading here</h1>
+                                                                    </div>
+                                                                    
+                                                                    <div class="each_cell">
+                                                                        <section>
+                                                                                <span class="tooltip"></span>
+                                                                                <div id="slider4" class="slider type2"></div>
+                                                                                <span class="volume"></span>
+                                                                        </section>
+                                                                    </div>
+                                                                                                                                        
+                                                                </div>
+                                                                <!-- component -->
+
+                                                            
+                                                        </div>
+                                                        <!-- +++++++++ div set 003 +++++++-->
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <!-- +++++++++ div set 004 +++++++-->
+                                                        <div class="step">
+                                                                
+                                                            Dear please let me know if a change is want.
+                                                            
+                                                        </div>
+                                                        <!-- +++++++++ div set 004 +++++++-->
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <button id="prevBtn" class="btn_janith">Prev</button>
+                                                        <button id="nextBtn" class="btn_janith">Next</button>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                    
+<!--                                                    <div class="each_cell spa_btm_line">
+
+                                                    </div>-->
+
+                                                </div>
+                                                <!-- loop from here-->
+
+
+                                        </div>
+
+
+
+
+                        </div>
+
+                </div>                                    
+
+
+            </div>
+
+</div>
+	<!-- container -->
+
+
+
+<!-- Structure EOF -->
+
+
+
+
+
+
+
+</div>
+<!-- M contain -->        
+
+
+		
+<!-- Menu -->
+<nav id="menu">
+        <ul>
+          <li><a href="Home.html">Home</a></li>       
+          <li><a href="About.html">About</a></li>
+          <li><a href="version.html">Version</a></li>
+        </ul>
+</nav>                     
+<!-- menu -->
+
+	</body>
+</html>
