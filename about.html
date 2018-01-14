@@ -67,34 +67,47 @@
 
                 <script>                
                 $(function(){
-			$('.slider').slider();
-
-			$('#slider1').slider({
-				range: 'min',
-				value: 30
-			});
-			
 			$('#spl').slider({
                 range: 'min',
 				min: 50,
 				max: 140,
-                value: 65
-			});
+                value: 65,
+                slide: function( event, ui ) {
+                    $( "#splVal" ).val(ui.value + "db" );
+                    cal(ui.value,$( "#area" ).slider( "value" ),$( "#frequency" ).slider( "values" ))
+                }
+			});     $( "#splVal" ).val( $( "#spl" ).slider( "value" ) + "db");
 
 			$('#area').slider({
 				range: 'min',
                 min: 1,
                 max: 100,
-				value: 45
-			});
+				value: 45,
+                slide: function( event, ui ) {
+                    $( "#areaVal" ).val(ui.value + "m*m" );
+                    cal($( "#spl" ).slider( "value" ),ui.value,$( "#frequency" ).slider( "values" ))
+                }
+            });     $( "#areaVal" ).val( $( "#area" ).slider( "value" ) + "m*m");
 		
 			$('#frequency').slider({
 				range: true,
                 min: 0,
                 max: 22000,
-				values: [100,18000]
-			});
+				values: [100,18000],
+                slide: function( event, ui ) {
+                    $( "#frequencyVal" ).val(ui.values[0] +" - "+ ui.values[1] + "Hz" );
+                    cal($( "#spl" ).slider( "value" ),$( "#area" ).slider( "value" ),ui.values)
+                }
+            });
+			var val = $( "#frequency" ).slider( "values" );
+			$( "#frequencyVal" ).val(val[0] +" - "+ val[1]  + "Hz");
+                    cal(65,45,[100,18000]);
 		});
+                function cal(db,area,reng) {
+                    $( "#powerO" ).val(((db*db*area/100*(reng[1]-reng[0])/1000)/20000).toFixed(2)+ "W");
+                    $( "#volumeL" ).val((db*area/100*(reng[1]-reng[0])/1000/50000).toFixed(2)+" l");
+                    $( "#priceE" ).val("RS "+(db*area*(reng[1]-reng[0])/1000).toFixed(2));
+                }
                 </script>
 
                 
@@ -238,7 +251,7 @@
                                                             <div class="each_cell spa_btm_form_val">
                                                                 <div class="flu_left padding_right">
                                                                     <div class="cirval">
-                                                                           <input type="radio" name="audio" value="1">
+                                                                           <input type="radio" name="audio" value="1"  checked>
                                                                     </div>
                                                                 </div>
 
@@ -402,6 +415,7 @@
 
                                                                 <div class="each_cell spa_btm">
                                                                     <h1>SPL(DB) (50db-140db)</h1>
+                                                                    <input type="text" id="splVal" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                                                 </div>
 
                                                                 <div class="each_cell">
@@ -420,6 +434,7 @@
 
                                                                 <div class="each_cell spa_btm">
                                                                     <h1>Area Sq. meter (1-100)</h1>
+                                                                    <input type="text" id="areaVal" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                                                 </div>
 
                                                                 <div class="each_cell">
@@ -439,6 +454,7 @@
 
                                                                 <div class="each_cell spa_btm">
                                                                     <h1>frequency range (5Hz-22kHz)</h1>
+                                                                    <input type="text" id="frequencyVal" readonly style="border:0; color:#f6931f; font-weight:bold;">
                                                                 </div>
 
                                                                 <div class="each_cell">
@@ -451,6 +467,31 @@
 
                                                             </div>
                                                             <!-- component -->
+
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>Out put power : </h1>
+                                                                    <input type="text" id="powerO" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>System size : </h1>
+                                                                    <input type="text" id="volumeL" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="each_cell spa_btm_form_val">
+
+                                                                <div class="each_cell spa_btm">
+                                                                    <h1>Estimated price : </h1>
+                                                                    <input type="text" id="priceE" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                                                </div>
+
+                                                            </div>
 
 
                                                         </div>
