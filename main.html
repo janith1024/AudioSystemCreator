@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes"/>
     <title>Configure your own Audio System</title>
 
-    <link rel="stylesheet" type="text/css" href="css/j.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/slider.css"/>
 
     <!--menu-->
@@ -19,6 +19,7 @@
 
     <script src="libs/jquery-3.0.0.js"></script>
     <script src="libs/jquery-ui.js"></script>
+	<script src="lib/jquery.ui.touch-punch.min.js"></script>
 
     <!--                <script src="libs/jquery.min.js"></script>                 -->
 
@@ -46,16 +47,34 @@
 
 
             var $steps = $('.step');
+			var count = 0;
+			$('#prevBtn').hide();
+			
             $('#nextBtn').click(function () {
+				if(count > 1){
+					window.location.href = "index.html";
+				}
+				if(count == 1){
+					$('#nextBtn').html('Finish');
+				}
                 var $next = $steps.filter('.active').removeClass('active').next('.step');
                 if (!$next.length) $next = $steps.first();
                 $next.addClass('active');
+				$('#prevBtn').show();
+				count++;
             });
 
             $('#prevBtn').click(function () {
                 var $prev = $steps.filter('.active').removeClass('active').prev('.step');
                 if (!$prev.length) $prev = $steps.last();
                 $prev.addClass('active');
+				count--;
+				if(count == 0){
+					$('#prevBtn').hide();
+				}
+				else if(count == 1){
+					$('#nextBtn').html('Next');
+				}
             });
 
             $('#spl').slider({
